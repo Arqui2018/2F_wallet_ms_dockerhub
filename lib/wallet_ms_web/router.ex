@@ -16,7 +16,8 @@ defmodule WalletMsWeb.Router do
   scope "/", WalletMsWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/master", PageController, :index
+    # do actions
   end
 
   # Other scopes may use custom stacks.
