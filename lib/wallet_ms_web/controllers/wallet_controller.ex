@@ -29,8 +29,8 @@ defmodule WalletMsWeb.WalletController do
   require Logger
 
   def update(conn, %{"balance" => wallet_params, "id" => id}) do
-    wallet_params = %{ "balance" => wallet_params } # fix in the future
     wallet = ApiWallet.get_wallet!(id)
+    wallet_params = %{ "balance" => wallet_params + wallet.balance }
 
     with {:ok, %Wallet{} = wallet} <- ApiWallet.update_wallet(wallet, wallet_params) do
       render(conn, "show.json", wallet: wallet)
