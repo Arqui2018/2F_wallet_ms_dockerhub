@@ -12,9 +12,11 @@ services:
       MYSQL_HOST: wallet_db
   wallet_ms:
     build: .
-    command: mix phx.server
+    command: bash -c "mix ecto.create && mix ecto.migrate && mix phx.server"
+    ports:
+      - "4004:4004"
     depends_on:
       - wallet_db
     environment:
       PORT: '4004'
-      MIX_ENV: dev
+      MIX_ENV: prod
