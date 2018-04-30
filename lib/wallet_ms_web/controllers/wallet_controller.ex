@@ -27,7 +27,6 @@ defmodule WalletMsWeb.WalletController do
   end
 
   def update(conn, %{"id" => id, "wallet" => wallet_params}) do
-    params
     wallet = ApiWallet.get_wallet!(id)
 
     with {:ok, %Wallet{} = wallet} <- ApiWallet.update_wallet(wallet, wallet_params) do
