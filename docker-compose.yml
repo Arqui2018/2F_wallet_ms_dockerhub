@@ -10,7 +10,7 @@ services:
       MYSQL_PASSWORD: 1234
       MYSQL_DATABASE: user
       MYSQL_HOST: wallet_db
-  wallet_db:
+  wallet_ms:
     build: .
     command: bash -c "sleep 40 && mix ecto.create && mix ecto.migrate && mix phx.server"
     depends_on:
