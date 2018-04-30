@@ -47,20 +47,11 @@ config :logger, :console, format: "[$level] $message\n"
 # in production as building large stacktraces may be expensive.
 config :phoenix, :stacktrace_depth, 20
 
-# Configure your database
+# development
 config :wallet_ms, WalletMs.Repo,
   adapter: Ecto.Adapters.MySQL,
-  username: "apuesta",
-  password: "1234",
+  username: "root",
+  password: "admin",
   database: "wallet",
-  hostname: "wallet_db",
+  hostname: "localhost",
   pool_size: 10
-
-# development
-# config :wallet_ms, WalletMs.Repo,
-#   adapter: Ecto.Adapters.MySQL,
-#   username: "root",
-#   password: "admin",
-#   database: "wallet",
-#   hostname: "localhost",
-#   pool_size: 10

@@ -26,7 +26,10 @@ defmodule WalletMsWeb.WalletController do
     render(conn, "show.json", wallet: wallet)
   end
 
-  def update(conn, %{"id" => id, "wallet" => wallet_params}) do
+  require Logger
+
+  def update(conn, %{"balance" => wallet_params, "id" => id}) do
+    wallet_params = %{ "balance" => wallet_params } # fix in the future
     wallet = ApiWallet.get_wallet!(id)
 
     with {:ok, %Wallet{} = wallet} <- ApiWallet.update_wallet(wallet, wallet_params) do
@@ -37,7 +40,7 @@ defmodule WalletMsWeb.WalletController do
   def delete(conn, %{"id" => id}) do
     wallet = ApiWallet.get_wallet!(id)
     with {:ok, %Wallet{}} <- ApiWallet.delete_wallet(wallet) do
-      send_resp(conn, :no_content, "")
+      render(conn, "show.json", wallet: wallet)
     end
   end
 end
