@@ -11,10 +11,18 @@ use Mix.Config
 config :wallet_ms, WalletMsWeb.Endpoint,
   secret_key_base: "y/E4/Yiu05795BTGrdf4Gc6mlvOD1k3UONA2LkvxtbfGABO/jgiLOAJB+PK+4qet"
 
-# Configure your database
+Configure your database
 config :wallet_ms, WalletMs.Repo,
   adapter: Ecto.Adapters.MySQL,
   username: "apuesta",
   password: "1234",
-  database: "wallet_ms",
+  database: "wallet",
+  hostname: "wallet_db",
   pool_size: 15
+# config :wallet_ms, WalletMs.Repo,
+#   adapter: Ecto.Adapters.MySQL,
+#   username: "apuesta",
+#   password: "1234",
+#   database: "wallet",
+#   hostname: "wallet_db",
+#   pool_size: 10

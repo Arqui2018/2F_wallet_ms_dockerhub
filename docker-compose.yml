@@ -8,13 +8,13 @@ services:
       MYSQL_ROOT_PASSWORD: 1234
       MYSQL_USER: apuesta
       MYSQL_PASSWORD: 1234
-      MYSQL_DATABASE: user
+      MYSQL_DATABASE: wallet
       MYSQL_HOST: wallet_db
   wallet_ms:
     build: .
-    command: bash -c "sleep 40 && mix ecto.create && mix ecto.migrate && mix phx.server"
+    command: mix phx.server
     depends_on:
       - wallet_db
     environment:
       PORT: '4004'
-      MIX_ENV: 'prod'
+      MIX_ENV: dev

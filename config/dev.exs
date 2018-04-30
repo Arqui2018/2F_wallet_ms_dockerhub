@@ -50,8 +50,17 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :wallet_ms, WalletMs.Repo,
   adapter: Ecto.Adapters.MySQL,
-  username: "root",
-  password: "admin",
-  database: "wallet_ms_dev",
-  hostname: "localhost",
+  username: "apuesta",
+  password: "1234",
+  database: "wallet",
+  hostname: "wallet_db",
   pool_size: 10
+
+# development
+# config :wallet_ms, WalletMs.Repo,
+#   adapter: Ecto.Adapters.MySQL,
+#   username: "root",
+#   password: "admin",
+#   database: "wallet",
+#   hostname: "localhost",
+#   pool_size: 10
