@@ -8,6 +8,13 @@ WORKDIR /wallet_ms
 RUN mix local.hex --force
 RUN mix archive.install https://github.com/phoenixframework/archives/raw/master/phx_new.ez --force
 
+# getting dependencies
+RUN mix deps.get --only prod
+RUN MIX_ENV=prod mix compile
+
+# assests
+RUN mix phx.digest
+
 # Compile the project
 RUN mix do compile
 
