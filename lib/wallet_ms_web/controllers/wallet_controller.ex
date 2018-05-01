@@ -29,6 +29,7 @@ defmodule WalletMsWeb.WalletController do
   require Logger
 
   def update(conn, %{"balance" => wallet_params, "id" => id}) do
+
     wallet = ApiWallet.get_wallet!(id)
     wallet_params = %{ "balance" => wallet_params + wallet.balance }
 
